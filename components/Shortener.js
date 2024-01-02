@@ -2,16 +2,7 @@
 
 import { useEffect, useState } from "react";
 import fetchData from "@/utils/fetchData";
-
-const storedLinks = () => {
-  let links = localStorage.getItem("links");
-
-  if (links) {
-    return JSON.parse(localStorage.getItem("links"));
-  } else {
-    return [];
-  }
-};
+import storedLinks from "@/utils/storage";
 
 const Shortener = () => {
   const [text, setText] = useState("");
