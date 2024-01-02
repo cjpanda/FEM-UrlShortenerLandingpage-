@@ -1,27 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  scroll-behavior: smooth;
 }
+@layer base {
+  p {
+    @apply leading-5;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  h1 {
+    line-height: 1.2 !important;
+  }
+  ul,
+  li {
+    @apply list-none;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.img {
+  @apply max-w-[100%];
+}
+
+/* Centering all the components to align on the page(maxwidth)  */
+.max-width {
+  @apply px-5 lg:max-w-5xl lg:mx-auto xl:max-w-6xl 2xl:px-0;
+}
+
+.boost {
+  @apply bg-[#3B3054] h-80;
+}
+
+.short {
+  @apply h-44 bg-[#3B3054] w-full;
+}
+
+.boost-overlay {
+  @apply w-full bg-boost-mobile lg:bg-boost-desktop bg-no-repeat bg-center bg-cover;
+}
+
+.short-overlay {
+  @apply max-width bg-shorten-mobile lg:bg-shorten-desktop bg-no-repeat bg-center bg-cover;
+}
+
+@media (min-width: 1024px) {
+  .card div:nth-child(3) {
+    transform: translateY(2rem);
+  }
+  .card div:last-child {
+    transform: translateY(4rem);
+  }
+  .line {
+    @apply h-2 bg-accent w-full absolute;
+    top: 50%;
+  }
+}
+
+.btn {
+  @apply bg-accent hover:bg-opacity-75 px-4 lg:px-7 font-bold text-white tracking-[1px] text-sm lg:text-[1rem]  transition-all duration-300;
+}
+
+.btn-sm {
+  @apply h-10;
+}
+
+.btn-lg {
+  @apply h-14;
 }
